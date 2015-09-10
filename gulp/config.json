@@ -1,0 +1,18 @@
+{
+  "compass": "config.rb",
+  "bower" : "bower/",
+  "source" : "_source/",
+  "dest" : {
+    "assets": "_source/assets",
+    "css":    "_source/assets/css",
+    "js":     "_source/assets/js",
+    "fonts":  "_source/assets/fonts",
+    "img":    "_source/assets/images"
+  },
+  "src" : {
+    "sass":  "_source/_sass/",
+    "js":    "_source/_js/",
+    "img":   "_source/_images/",
+    "fonts": "_source/_fonts/"
+  }
+}
