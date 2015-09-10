@@ -1,6 +1,7 @@
 {
   "compass": "config.rb",
   "bower" : "bower/",
+  "site" : "_site/",
   "source" : "_source/",
   "dest" : {
     "assets": "_source/assets",

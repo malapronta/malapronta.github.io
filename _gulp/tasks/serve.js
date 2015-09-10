@@ -19,9 +19,9 @@ gulp.task('serve', function() {
     notify: false,
     open: "external",
     logPrefix: 'browser-sync',
-    server: [config.source]
+    server: [config.site]
   });
 
-  gulp.watch(config.source + '**/*.{html,css,js}').on('change', bSync.reload);
+  gulp.watch(config.site + '**/*.{html,css,js}').on('change', bSync.reload);
 
 });
