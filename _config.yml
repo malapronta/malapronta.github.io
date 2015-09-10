@@ -1,0 +1,10 @@
+source : _source/
+permalink : /:title/
+markdown : kramdown
+highlighter : pygments
+
+include : []
+exclude : ["gulp", "node_modules", "bower", "config.rb", "Gemfile", "Gemfile.lock", ".rvmrc", ".rbenv-version", "package.json", "gulpfile.js", "README.md", "Rakefile", "changelog.md"]
+
+title: "MalaPronta.com TI"
+description: "Por trás da cortina.."
