@@ -6,15 +6,18 @@
 .post {
   @extend .container;
   max-width: 46em;
-  padding-bottom: em(15px);
-  margin-bottom: em(15px);
+  padding-bottom: em($gutter*2);
+  margin-bottom: em($gutter);
   border-bottom: 1px solid $silver-color;
+  @extend %clearfix;
 }
 
-.post-header,
-.post-excerpt {
-  a {
-    color: $txt-color;
+.post-header a {
+  color: $txt-color;
+
+  &:hover {
+    color: $link-color;
+    text-decoration: none;
   }
 }
 

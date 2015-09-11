@@ -12,9 +12,10 @@ header {
 .navbar {
   @extend %clearfix;
   border-top: 4px solid $primary-color;
-  background-color: $white-color;
-  @include box-shadow(0px 1px 3px rgba($black-color, .2));
-  position: fixed;
+  // background-color: $white-color;
+  // @include box-shadow(0px 1px 3px rgba($black-color, .2));
+  // position: fixed;
+  position: absolute;
   min-height: 50px;
   z-index: 1001;
   width: 100%;
@@ -23,8 +24,8 @@ header {
   right: 0;
 
   h1 {
-    float: left;
     @include font-size(26px);
+    text-align: center;
     margin: 0;
 
     a {
@@ -38,6 +39,11 @@ header {
       margin-right: 15px;
       @include border-radius(4px);
     }
+
+    @include media($screen-tablet) {
+      float: left;
+      text-align: left;
+    }
   }
 
   a, img {
@@ -45,8 +51,8 @@ header {
   }
 
   a {
-    font-weight: 300;
-    color: $txt-color;
+    font-weight: 400;
+    color: $white-color;
 
     &:hover {
       color: $primary-color;
@@ -64,12 +70,12 @@ header {
 
   li {
     display: inline-block;
-    margin-left: em($gutter/2);
+    margin-left: em($gutter);
   }
 }
 
 .banner {
-  min-height: em(420px);
+  min-height: em(460px);
   background: url(/assets/images/tech-banner.jpg) no-repeat top center;
   @include background-size(cover);
   position: relative;

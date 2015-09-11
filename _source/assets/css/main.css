@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,600");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600");
 
 /**
  * Blog de TI by MalaPronta.com
@@ -225,12 +225,14 @@ th {
 
 header,
 .navbar,
+.post,
 .highlight {
 	*zoom: 1;
 }
 
 header:before,
 .navbar:before,
+.post:before,
 .highlight:before {
 	content: " ";
 	display: table;
@@ -238,6 +240,7 @@ header:before,
 
 header:after,
 .navbar:after,
+.post:after,
 .highlight:after {
 	content: " ";
 	display: table;
@@ -264,7 +267,7 @@ html {
 
 body {
 	font-family: "Open Sans", Helvetica, Arial, sans-serif;
-	font-size: 1rem;
+	font-size: 1.125rem;
 	background-color: #fff;
 	color: #777;
 	line-height: 1.6;
@@ -279,7 +282,7 @@ h3,
 h4,
 h5,
 h6 {
-	margin: 1.25em 0 0.9375em;
+	margin: 1.11111em 0 0.83333em;
 }
 
 h1 {
@@ -304,7 +307,7 @@ h6 {
 }
 
 a {
-	color: #fccb3b;
+	color: #016ba9;
 	-moz-transition: color 0.3s linear;
 	-o-transition: color 0.3s linear;
 	-webkit-transition: color 0.3s linear;
@@ -323,8 +326,8 @@ a:focus {
 .post {
 	margin-left: auto;
 	margin-right: auto;
-	padding-left: 0.9375em;
-	padding-right: 0.9375em;
+	padding-left: 0.83333em;
+	padding-right: 0.83333em;
 }
 
 .container,
@@ -340,11 +343,7 @@ header {
 
 .navbar {
 	border-top: 4px solid #fccb3b;
-	background-color: #fff;
-	-moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
-	-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
-	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
-	position: fixed;
+	position: absolute;
 	min-height: 50px;
 	z-index: 1001;
 	width: 100%;
@@ -354,8 +353,8 @@ header {
 }
 
 .navbar h1 {
-	float: left;
 	font-size: 1.625rem;
+	text-align: center;
 	margin: 0;
 }
 
@@ -379,8 +378,8 @@ header {
 }
 
 .navbar a {
-	font-weight: 300;
-	color: #777;
+	font-weight: 400;
+	color: #fff;
 }
 
 .navbar a:hover {
@@ -398,11 +397,11 @@ header {
 
 .nav li {
 	display: inline-block;
-	margin-left: 0.9375em;
+	margin-left: 1.66667em;
 }
 
 .banner {
-	min-height: 26.25em;
+	min-height: 25.55556em;
 	background: url(/assets/images/tech-banner.jpg) no-repeat top center;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -413,7 +412,7 @@ header {
 }
 
 .banner-inner {
-	padding: 10em 0;
+	padding: 8.88889em 0;
 	text-align: center;
 	position: absolute;
 	height: 100%;
@@ -429,20 +428,24 @@ header {
 
 .post {
 	max-width: 46em;
-	padding-bottom: 0.9375em;
-	margin-bottom: 0.9375em;
+	padding-bottom: 3.33333em;
+	margin-bottom: 1.66667em;
 	border-bottom: 1px solid #eee;
 }
 
-.post-header a,
-.post-excerpt a {
+.post-header a {
 	color: #777;
+}
+
+.post-header a:hover {
+	color: #016ba9;
+	text-decoration: none;
 }
 
 .post-header h1 {
 	font-weight: 700;
 	text-transform: uppercase;
-	margin-bottom: 0.3125em;
+	margin-bottom: 0.27778em;
 	line-height: 1.3;
 }
 
@@ -456,7 +459,7 @@ header {
 
 .highlight {
 	padding: 0;
-	margin-top: 0.9375em;
+	margin-top: 0.83333em;
 	margin-bottom: 25px; /* Comment */ /* Error */ /* Keyword */ /* Literal */ /* Name */ /* Operator */ /* Punctuation */ /* Comment.Multiline */ /* Comment.Preproc */ /* Comment.Single */ /* Comment.Special */ /* Generic.Emph */ /* Generic.Strong */ /* Keyword.Constant */ /* Keyword.Declaration */ /* Keyword.Namespace */ /* Keyword.Pseudo */ /* Keyword.Reserved */ /* Keyword.Type */ /* Literal.Date */ /* Literal.Number */ /* Literal.String */ /* Name.Attribute */ /* Name.Builtin */ /* Name.Class */ /* Name.Constant */ /* Name.Decorator */ /* Name.Entity */ /* Name.Exception */ /* Name.Function */ /* Name.Label */ /* Name.Namespace */ /* Name.Other */ /* Name.Property */ /* Name.Tag */ /* Name.Variable */ /* Operator.Word */ /* Text.Whitespace */ /* Literal.Number.Float */ /* Literal.Number.Hex */ /* Literal.Number.Integer */ /* Literal.Number.Oct */ /* Literal.String.Backtick */ /* Literal.String.Char */ /* Literal.String.Doc */ /* Literal.String.Double */ /* Literal.String.Escape */ /* Literal.String.Heredoc */ /* Literal.String.Interpol */ /* Literal.String.Other */ /* Literal.String.Regex */ /* Literal.String.Single */ /* Literal.String.Symbol */ /* Name.Builtin.Pseudo */ /* Name.Variable.Class */ /* Name.Variable.Global */ /* Name.Variable.Instance */ /* Literal.Number.Integer.Long */ /* Generic.Subheading & Diff Unified/Comment? */ /* Generic.Deleted & Diff Deleted */ /* Generic.Inserted & Diff Inserted */
 }
 
@@ -469,7 +472,7 @@ header {
 
 .highlight pre {
 	margin: 0;
-	padding: 0.9375em 1.25em;
+	padding: 0.83333em 1.11111em;
 	white-space: pre;
 	line-height: 23px;
 	overflow-x: auto;
@@ -733,5 +736,14 @@ header {
 
 .highlight .gi {
 	color: #a6e22e;
+}
+
+@media (min-width: 37em) {
+
+.navbar h1 {
+	float: left;
+	text-align: left;
+}
+
 }
 
