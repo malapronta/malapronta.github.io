@@ -30,6 +30,12 @@
   }
 }
 
+.post-title {
+  @include font-size(50px);
+  color: $white-color;
+  margin-top: 0;
+}
+
 .post-meta {
   time,
   span {

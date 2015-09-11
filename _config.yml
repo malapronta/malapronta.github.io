@@ -1,5 +1,5 @@
 source : _source/
-permalink : /:title/
+permalink : /article/:title/
 markdown : kramdown
 highlighter : pygments
 
@@ -8,3 +8,7 @@ exclude : ["gulp", "node_modules", "bower", "config.rb", "Gemfile", "Gemfile.loc
 
 title: "MalaPronta.com / TI"
 description: ".."
+
+paginate: 6
+comments: true
+paginate_path: "/page/:num"

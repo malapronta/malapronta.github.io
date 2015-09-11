@@ -7,6 +7,7 @@ header {
   @extend %clearfix;
   display: table;
   width: 100%;
+  margin-bottom: em($gutter/2);
 }
 
 .navbar {
@@ -29,6 +30,7 @@ header {
     margin: 0;
 
     a {
+      color: $primary-color;
       padding: 7px 0;
       display: block;
     }
@@ -50,14 +52,9 @@ header {
     display: inline-block;
   }
 
-  a {
-    font-weight: 400;
-    color: $white-color;
-
-    &:hover {
-      color: $primary-color;
-      text-decoration: none;
-    }
+  a:hover,
+  a:focus {
+    text-decoration: none;
   }
 
   .nav {
@@ -71,6 +68,18 @@ header {
   li {
     display: inline-block;
     margin-left: em($gutter);
+  }
+
+  a {
+    font-weight: 400;
+    color: $white-color;
+    text-transform: lowercase;
+  }
+
+  li a:hover,
+  li a:focus,
+  li.active a {
+    color: $primary-color;
   }
 }
 

@@ -1,0 +1,32 @@
+<article role="article" class="post" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+
+  <header class="post-header">
+    <h1><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h1>
+  </header>
+
+  <section class="post-excerpt">
+    <p>{{ post.content | strip_html | truncatewords: 50 }}<a class="read-more" href="{{ post.url }}" title="{{ post.title }}">Continue..</a></p>
+  </section>
+
+  <footer class="post-meta">
+    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">
+      {% assign m = post.date | date: "%-m" %}
+      {{ post.date | date: "%-d" }} de
+      {% case m %}
+        {% when '1' %}Janeiro
+        {% when '2' %}Fevereiro
+        {% when '3' %}Março
+        {% when '4' %}Abril
+        {% when '5' %}Maio
+        {% when '6' %}Junho
+        {% when '7' %}Julho
+        {% when '8' %}Agosto
+        {% when '9' %}Setembro
+        {% when '10' %}Outubro
+        {% when '11' %}Novembro
+        {% when '12' %}Dezembro
+      {% endcase %}
+      de {{ post.date | date: "%Y" }} | </time>
+    <span><a href="{{ post.url }}#disqus_thread" data-disqus-identifier="{{ post.id }}">Deixe um comentário</a></span>
+  </footer>
+</article>

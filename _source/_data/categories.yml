@@ -1,0 +1,11 @@
+- slug: front-end
+  name: Front-end
+
+- slug: back-end
+  name: Back-end
+
+- slug: infra
+  name: Infra
+
+- slug: mobile
+  name: Mobile

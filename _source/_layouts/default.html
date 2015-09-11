@@ -6,7 +6,10 @@ layout: compress
   <head>
     {% include head.html %}
   </head>
-  <body>
-    {{ content }}
+  <body class="{{ page.slug }}">
+    <main role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
+      {{ content }}
+      {% include footer.html %}
+    </main>
   </body>
 </html>
