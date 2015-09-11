@@ -11,7 +11,7 @@ require "jekyll"
 GITHUB_REPONAME = "malapronta/malapronta.github.io"
 
 SOURCE = "_source/"
-DESTINATION = "_source/"
+DESTINATION = "_site/"
 CONFIG = {
   'layouts' => File.join(SOURCE, "_layouts"),
   'posts' => File.join(SOURCE, "_posts"),
@@ -26,7 +26,7 @@ namespace :site do
     Jekyll::Site.new(Jekyll.configuration({
       "source" => "#{SOURCE}",
       "destination" => "#{DESTINATION}",
-      "config" => ""
+      "config" => "_config.yml"
     })).process
   end
 

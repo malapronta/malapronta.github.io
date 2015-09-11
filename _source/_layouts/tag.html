@@ -6,19 +6,19 @@ layout: default
   {% include navbar.html %}
   <div class="banner">
     <div class="banner-inner">
-      <h1 class="post-title">{{ page.title }}</h1>
+      <h2>Artigos marcados com a tag: {{ page.title }}</h2>
     </div>
   </div>
 </header>
 
 <section class="articles">
-  {% if site.categories[page.slug] %}
-    {% for post in site.categories[page.slug] %}
+  {% if site.tags[page.slug] %}
+    {% for post in site.tags[page.slug] %}
       {% include article.html %}
     {% endfor %}
   {% else %}
     <article role="article" class="post">
-      <p>Não há artigos para a categoria: <strong>{{ page.title }}</strong></p>
+      <p>Não há artigos para a tag: <strong>{{ page.title }}</strong></p>
     </article>
   {% endif %}
 </section>
