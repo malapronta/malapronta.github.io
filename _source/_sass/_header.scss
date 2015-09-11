@@ -1,0 +1,92 @@
+//
+// Header
+//
+
+header {
+  position: relative;
+  @extend %clearfix;
+  display: table;
+  width: 100%;
+}
+
+.navbar {
+  @extend %clearfix;
+  border-top: 4px solid $primary-color;
+  background-color: $white-color;
+  @include box-shadow(0px 1px 3px rgba($black-color, .2));
+  position: fixed;
+  min-height: 50px;
+  z-index: 1001;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  h1 {
+    float: left;
+    @include font-size(26px);
+    margin: 0;
+
+    a {
+      padding: 7px 0;
+      display: block;
+    }
+
+    img {
+      width: 36px;
+      float: left;
+      margin-right: 15px;
+      @include border-radius(4px);
+    }
+  }
+
+  a, img {
+    display: inline-block;
+  }
+
+  a {
+    font-weight: 300;
+    color: $txt-color;
+
+    &:hover {
+      color: $primary-color;
+      text-decoration: none;
+    }
+  }
+
+  .nav {
+    float: right;
+  }
+}
+
+.nav {
+  list-style: none;
+
+  li {
+    display: inline-block;
+    margin-left: em($gutter/2);
+  }
+}
+
+.banner {
+  min-height: em(420px);
+  background: url(/assets/images/tech-banner.jpg) no-repeat top center;
+  @include background-size(cover);
+  position: relative;
+  z-index: 2;
+}
+
+.banner-inner {
+  padding: em(160px) 0;
+  text-align: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba($black-color, .7);
+
+  h2 {
+    font-weight: 700;
+    color: $white-color;
+    text-transform: uppercase;
+  }
+}

@@ -4,7 +4,7 @@
 
 var config = require('../config.json');
 var $      = require('gulp-load-plugins')();
-var bSync  = require('browser-sync').create();
+var bSync  = require('browser-sync');
 var gulp   = require('gulp');
 
 gulp.task('serve', function() {

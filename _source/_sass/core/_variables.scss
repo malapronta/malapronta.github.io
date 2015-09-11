@@ -1,0 +1,24 @@
+//
+// Variables
+//
+
+// colors
+$primary-color: #fccb3b !default;
+$link-color: $primary-color !default;
+$bg-color: #fff !default;
+$txt-color: #777 !default;
+$white-color: #fff !default;
+$silver-color: #eee !default;
+$black-color: #000 !default;
+
+$font-family-base: "Open Sans", Helvetica, Arial, sans-serif !default;
+$font-size-base: 16px !default;
+$line-height-base: 1.6 !default;
+$default-feature: min-width !default;
+
+$max-width: 53em !default;
+$gutter: 30px !default;
+
+$screen-phone   : 30em !default;
+$screen-tablet  : 37em !default;
+$screen-desktop : 56em !default;

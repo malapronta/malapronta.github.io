@@ -3,7 +3,6 @@
  */
 
 var config = require('../config.json');
-var bSync  = require('browser-sync').create();
 var gulp   = require('gulp');
 
 gulp.task('watch', function() {

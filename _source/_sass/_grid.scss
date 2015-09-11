@@ -1,0 +1,19 @@
+//
+// Grid
+//
+
+.container-full {
+  margin: {
+    left: auto;
+    right: auto;
+  };
+  padding: {
+    left: em($gutter/2);
+    right: em($gutter/2);
+  };
+}
+
+.container {
+  @extend .container-full;
+  max-width: $max-width;
+}

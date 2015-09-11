@@ -4,3 +4,15 @@
 
 @import "compass/css3";
 @import "normalize";
+
+@import "core/variables";
+@import "core/functions";
+@import "core/placeholders";
+@import "core/mixins";
+
+@import "globals";
+@import "grid";
+@import "header";
+@import "posts";
+
+@import "syntax";
