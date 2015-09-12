@@ -8,6 +8,10 @@ header {
   display: table;
   width: 100%;
   margin-bottom: em($gutter/2);
+
+  .post-meta a {
+    color: $primary-color;
+  }
 }
 
 .navbar {
@@ -52,9 +56,13 @@ header {
     display: inline-block;
   }
 
-  a:hover,
-  a:focus {
+  a {
     text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
   }
 
   .nav {
@@ -98,10 +106,4 @@ header {
   height: 100%;
   width: 100%;
   background-color: rgba($black-color, .7);
-
-  h2 {
-    font-weight: 700;
-    color: $white-color;
-    text-transform: uppercase;
-  }
 }

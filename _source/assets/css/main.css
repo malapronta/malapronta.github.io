@@ -226,6 +226,7 @@ th {
 header,
 .navbar,
 .post,
+.share,
 .highlight {
 	*zoom: 1;
 }
@@ -233,6 +234,7 @@ header,
 header:before,
 .navbar:before,
 .post:before,
+.share:before,
 .highlight:before {
 	content: " ";
 	display: table;
@@ -241,6 +243,7 @@ header:before,
 header:after,
 .navbar:after,
 .post:after,
+.share:after,
 .highlight:after {
 	content: " ";
 	display: table;
@@ -312,13 +315,13 @@ a {
 	-o-transition: color 0.3s linear;
 	-webkit-transition: color 0.3s linear;
 	transition: color 0.3s linear;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 a:hover,
 a:focus {
 	color: #777;
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 .container-full,
@@ -332,7 +335,7 @@ a:focus {
 
 .container,
 .post {
-	max-width: 53em;
+	max-width: 46em;
 }
 
 header {
@@ -340,6 +343,10 @@ header {
 	display: table;
 	width: 100%;
 	margin-bottom: 0.83333em;
+}
+
+header .post-meta a {
+	color: #fccb3b;
 }
 
 .navbar {
@@ -377,6 +384,10 @@ header {
 .navbar a,
 .navbar img {
 	display: inline-block;
+}
+
+.navbar a {
+	text-decoration: none;
 }
 
 .navbar a:hover,
@@ -429,20 +440,19 @@ header {
 	background-color: rgba(0, 0, 0, 0.7);
 }
 
-.banner-inner h2 {
-	font-weight: 700;
-	color: #fff;
-	text-transform: uppercase;
-}
-
 .post {
-	max-width: 46em;
 	padding-bottom: 3.33333em;
 	margin-bottom: 1.66667em;
 	border-bottom: 1px solid #eee;
 }
 
+.single .post {
+	border: none;
+	margin-bottom: 0;
+}
+
 .post-header a {
+	text-decoration: none;
 	color: #777;
 }
 
@@ -466,10 +476,142 @@ header {
 
 .post-meta time,
 .post-meta span {
-	color: #bbbbbb;
+	color: darkgray;
 	font-style: italic;
 	font-size: 0.875rem;
 	display: inline-block;
+}
+
+.share {
+	width: 100%;
+	margin-top: 3.33333em;
+	text-align: right;
+}
+
+.share h4 {
+	font-weight: 300;
+}
+
+.share h4,
+.share .share-icons {
+	display: inline-block;
+	margin: 0 0 0 7px;
+}
+
+.share .share-icons a {
+	text-decoration: none;
+	font-size: 1.125rem;
+}
+
+.share .share-icons .icon-twitter2 {
+	color: #2AA9E0;
+}
+
+.share .share-icons .icon-facebook2 {
+	color: #3B5998;
+}
+
+.share .share-icons .icon-google-plus {
+	color: #DC4A38;
+}
+
+.disqus {
+	background-color: #eee;
+	padding-top: 0.83333em;
+	padding-bottom: 0.83333em;
+}
+
+@font-face {
+	font-family: 'icomoon';
+	src: url("/assets/fonts/icons/icomoon.eot?386enq");
+	src: url("/assets/fonts/icons/icomoon.eot?#iefix386enq") format("embedded-opentype"), url("/assets/fonts/icons/icomoon.ttf?386enq") format("truetype"), url("/assets/fonts/icons/icomoon.woff?386enq") format("woff"), url("/assets/fonts/icons/icomoon.svg?386enq#icomoon") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-tag:before {
+	content: "\e600";
+}
+
+.icon-tags:before {
+	content: "\e601";
+}
+
+.icon-location:before {
+	content: "\e602";
+}
+
+.icon-comment:before {
+	content: "\e603";
+}
+
+.icon-comments:before {
+	content: "\e604";
+}
+
+.icon-anchor:before {
+	content: "\e605";
+}
+
+.icon-heart:before {
+	content: "\e606";
+}
+
+.icon-close:before {
+	content: "\e607";
+}
+
+.icon-check:before {
+	content: "\e608";
+}
+
+.icon-circle-up:before {
+	content: "\e609";
+}
+
+.icon-share:before {
+	content: "\e60a";
+}
+
+.icon-google-plus:before {
+	content: "\e60b";
+}
+
+.icon-facebook:before {
+	content: "\e60c";
+}
+
+.icon-facebook2:before {
+	content: "\e60d";
+}
+
+.icon-twitter:before {
+	content: "\e60e";
+}
+
+.icon-twitter2:before {
+	content: "\e60f";
+}
+
+.icon-feed:before {
+	content: "\e610";
+}
+
+.icon-github:before {
+	content: "\e611";
 }
 
 .highlight {

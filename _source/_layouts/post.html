@@ -9,8 +9,27 @@ slug: single
     <div class="banner-inner">
       <h1 class="post-title">{{ page.title }}</h1>
       <div class="post-meta">
+
+        {% assign post = page %}
+        {% if post.categories.size > 0 %}
+          {% capture categories_content %} em {% endcapture %}
+          {% for post_category in post.categories %}
+            {% for data_category in site.data.categories %}
+              {% if data_category.slug == post_category %}
+                {% assign category = data_category %}
+              {% endif %}
+            {% endfor %}
+            {% if category %}
+              {% capture categories_content_temp %}{{ categories_content }}<a href="/category/{{ category.slug }}/">{{ category.name }}</a>{% if forloop.last == false %}, {% endif %}{% endcapture %}
+              {% assign categories_content = categories_content_temp %}
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          {% assign categories_content = '' %}
+        {% endif %}
+
         <span class="post-date">
-          Publicado <time datetime="{{ page.date | date:"%Y-%m-%d" }}">
+          Publicado {{ categories_content }}, <time datetime="{{ page.date | date:"%Y-%m-%d" }}">
             {% assign m = page.date | date: "%-m" %}
             {{ page.date | date: "%-d" }} de
             {% case m %}
@@ -28,27 +47,13 @@ slug: single
               {% when '12' %}Dezembro
             {% endcase %}
             de {{ page.date | date: "%Y" }}
+            por
+            {% if page.author.twitter %}
+              <a href="http://twitter.com/{{ page.author.twitter }}" target="_blank">{{ page.author.name }}</a>
+            {% else %}
+              {{ page.author.name }}
+            {% endif %}
           </time>
-
-          {% assign post = page %}
-          {% if post.categories.size > 0 %}
-            {% capture categories_content %} em: {% endcapture %}
-            {% for post_category in post.categories %}
-              {% for data_category in site.data.categories %}
-                {% if data_category.slug == post_category %}
-                  {% assign category = data_category %}
-                {% endif %}
-              {% endfor %}
-              {% if category %}
-                {% capture categories_content_temp %}{{ categories_content }}<a href="/category/{{ category.slug }}/">{{ category.name }}</a>{% if forloop.last == false %}, {% endif %}{% endcapture %}
-                {% assign categories_content = categories_content_temp %}
-              {% endif %}
-            {% endfor %}
-          {% else %}
-            {% assign categories_content = '' %}
-          {% endif %}
-
-          {{ categories_content }}
         </span>
       </div>
     </div>
@@ -122,11 +127,10 @@ slug: single
     {% endif %}
 
     {% include share.html %}
-
-    {% if site.comments and page.comments %}
-      {% include comments.html %}
-    {% endif %}
-
   </footer>
 
 </article>
+
+{% if site.comments and page.comments %}
+  {% include comments.html %}
+{% endif %}

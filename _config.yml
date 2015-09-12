@@ -12,3 +12,7 @@ description: ".."
 paginate: 6
 comments: true
 paginate_path: "/page/:num"
+
+baseurl: ""
+url: "http://malapronta.github.io/"
+disqus_shortname: fernandomoreira

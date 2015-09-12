@@ -60,11 +60,11 @@ h4, h5, h6 {
 a {
   color: $link-color;
   @include transition(color linear .3s);
-  text-decoration: none;
+  text-decoration: underline;
 
   &:hover,
   &:focus {
     color: $txt-color;
-    text-decoration: underline;
+    text-decoration: none;
   }
 }

@@ -16,9 +16,11 @@ $font-size-base: 18px !default;
 $line-height-base: 1.6 !default;
 $default-feature: min-width !default;
 
-$max-width: 53em !default;
+$max-width: 46em !default;
 $gutter: 30px !default;
 
 $screen-phone   : 30em !default;
 $screen-tablet  : 37em !default;
-$screen-desktop : 56em !default;
+$screen-desktop : 46em !default;
+
+$fonts-folder: '/assets/fonts/' !default;

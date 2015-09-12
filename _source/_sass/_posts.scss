@@ -5,14 +5,19 @@
 // article loop
 .post {
   @extend .container;
-  max-width: 46em;
   padding-bottom: em($gutter*2);
   margin-bottom: em($gutter);
   border-bottom: 1px solid $silver-color;
   @extend %clearfix;
 }
 
+.single .post {
+  border: none;
+  margin-bottom: 0;
+}
+
 .post-header a {
+  text-decoration: none;
   color: $txt-color;
 
   &:hover {
@@ -39,9 +44,49 @@
 .post-meta {
   time,
   span {
-    color: darken($silver-color, 20%);
+    color: darken($silver-color, 27%);
     font-style: italic;
     @include font-size(14px);
     display: inline-block;
   }
+}
+
+.share {
+  @extend %clearfix;
+  width: 100%;
+  margin-top: em($gutter*2);
+  text-align: right;
+
+  h4 {
+    font-weight: 300;
+  }
+
+  h4,
+  .share-icons {
+    display: inline-block;
+    margin: 0 0 0 7px;
+  }
+
+  .share-icons {
+    a {
+      text-decoration: none;
+      @include font-size(18px);
+    }
+
+    .icon-twitter2 {
+      color: #2AA9E0;
+    }
+    .icon-facebook2 {
+      color: #3B5998;
+    }
+    .icon-google-plus {
+      color: #DC4A38;
+    }
+  }
+}
+
+.disqus {
+  background-color: $silver-color;
+  padding-top: em($gutter/2);
+  padding-bottom: em($gutter/2);
 }
