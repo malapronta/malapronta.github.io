@@ -6,7 +6,7 @@ slug: home
 
 <header class="header">
   {% include navbar.html %}
-  <div class="banner">
+  <div class="banner" {% if page.cover %}style="background-image: url({{ page.cover }})"{% endif %}>
     <div class="banner-inner">
       <h2>{{ site.description }}</h2>
     </div>

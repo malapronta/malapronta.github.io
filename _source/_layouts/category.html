@@ -4,7 +4,7 @@ layout: default
 
 <header class="header">
   {% include navbar.html %}
-  <div class="banner">
+  <div class="banner" {% if page.cover %}style="background-image: url({{ page.cover }})"{% endif %}>
     <div class="banner-inner">
       <h1 class="post-title">{{ page.title }}</h1>
     </div>

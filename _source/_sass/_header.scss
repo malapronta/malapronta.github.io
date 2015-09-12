@@ -95,10 +95,15 @@
 
 .banner {
   min-height: em(460px);
-  background: url(/assets/images/tech-banner.jpg) no-repeat top center;
+  background: url(/assets/images/batcave-banner.jpg) no-repeat 50%;
   @include background-size(cover);
   position: relative;
   z-index: 2;
+
+  h2 {
+    color: darken($white-color, 10%);
+    @include font-size(32px);
+  }
 }
 
 .banner-inner {

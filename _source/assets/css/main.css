@@ -427,13 +427,18 @@ a:focus {
 
 .banner {
 	min-height: 25.55556em;
-	background: url(/assets/images/tech-banner.jpg) no-repeat top center;
+	background: url(/assets/images/batcave-banner.jpg) no-repeat 50%;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	-webkit-background-size: cover;
 	background-size: cover;
 	position: relative;
 	z-index: 2;
+}
+
+.banner h2 {
+	color: #e6e6e6;
+	font-size: 2rem;
 }
 
 .banner-inner {

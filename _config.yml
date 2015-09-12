@@ -7,7 +7,7 @@ include : []
 exclude : ["gulp", "node_modules", "bower", "config.rb", "Gemfile", "Gemfile.lock", ".rvmrc", ".rbenv-version", "package.json", "gulpfile.js", "README.md", "Rakefile", "changelog.md"]
 
 title: "MalaPronta.com / TI"
-description: ".."
+description: "Por dentro da Batcaverna.."
 
 paginate: 6
 comments: true
@@ -16,3 +16,6 @@ paginate_path: "/page/:num"
 baseurl: ""
 url: "http://malapronta.github.io/"
 disqus_shortname: fernandomoreira
+twitter: malapronta
+facebook: malapronta
+github: malapronta
