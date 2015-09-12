@@ -223,27 +223,30 @@ th {
 	padding: 0;
 }
 
-header,
+.header,
 .navbar,
 .post,
 .share,
+.footer,
 .highlight {
 	*zoom: 1;
 }
 
-header:before,
+.header:before,
 .navbar:before,
 .post:before,
 .share:before,
+.footer:before,
 .highlight:before {
 	content: " ";
 	display: table;
 }
 
-header:after,
+.header:after,
 .navbar:after,
 .post:after,
 .share:after,
+.footer:after,
 .highlight:after {
 	content: " ";
 	display: table;
@@ -338,14 +341,14 @@ a:focus {
 	max-width: 46em;
 }
 
-header {
+.header {
 	position: relative;
 	display: table;
 	width: 100%;
 	margin-bottom: 0.83333em;
 }
 
-header .post-meta a {
+.header .post-meta a {
 	color: #fccb3b;
 }
 
@@ -401,6 +404,8 @@ header .post-meta a {
 
 .nav {
 	list-style: none;
+	padding: 0;
+	margin: 15px 0 0;
 }
 
 .nav li {
@@ -612,6 +617,34 @@ header .post-meta a {
 
 .icon-github:before {
 	content: "\e611";
+}
+
+.social {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	float: right;
+}
+
+.social li {
+	display: inline-block;
+	margin-left: 15px;
+}
+
+.social a {
+	font-size: 1.375rem;
+	color: #bbbbbb;
+	text-decoration: none;
+}
+
+.social a:hover,
+.social a:focus {
+	color: #555555;
+}
+
+.footer {
+	margin-top: 0.83333em;
+	padding: 0.83333em 0;
 }
 
 .highlight {

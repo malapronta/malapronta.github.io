@@ -1,0 +1,33 @@
+//
+// Footer
+//
+
+.social {
+  list-style: none;
+  // text-align: center;
+  padding: 0;
+  margin: 0;
+  float: right;
+
+  li {
+    display: inline-block;
+    margin-left: 15px;
+  }
+
+  a {
+    @include font-size(22px);
+    color: darken($silver-color, 20%);
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: darken($silver-color, 60%);
+    }
+  }
+}
+
+.footer {
+  @extend %clearfix;
+  margin-top: em($gutter/2);
+  padding: em($gutter/2) 0;
+}
