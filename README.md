@@ -26,8 +26,9 @@ Blog sobre tecnologia e afins, de [MalaPronta.com](http://www.malapronta.com.br)
 3. Crie seu artigo usando rake: `rake post title="Um artigo legal para o Blog da MalaPronta"`
 4. Abra e escreve seu artigo no arquivo: `_source/_posts/YYY-MM-DD-slug-do-post.md`
 5. Atualize o seu fork com o repositório original. Veja como fazer [nesse link](https://help.github.com/articles/configuring-a-remote-for-a-fork/) e [nesse](https://help.github.com/articles/syncing-a-fork/)
-6. Mande um push para sua branch: `git push origin myFirstArticle`
-7. Crie um pull request para publicação do artigo: [Creating a pull request](https://help.github.com/articles/creating-a-pull-request/)
+6. Adicione e commit suas alterações: `git commit -am "my first article.."`
+7. Mande um push para sua branch: `git push origin myFirstArticle`
+8. Crie um pull request para publicação do artigo: [Creating a pull request](https://help.github.com/articles/creating-a-pull-request/)
 
 
 ***
