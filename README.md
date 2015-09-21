@@ -7,13 +7,13 @@ Blog sobre tecnologia e afins, de [MalaPronta.com](http://www.malapronta.com.br)
 
 ## Instalação
 
-> Certifique se o Ruby e as RubyGems estão corretamente instalados antes de continuar.
+> :warning: Certifique se o Ruby e as RubyGems estão corretamente instalados antes de continuar.
 
 1. Clone o repositório: `git clone git@github.com:malapronta/malapronta.github.io.git ti.malapronta.com`
 2. Instale a gem bundle: `sudo gem install bundle`
 3. Instale as dependências do ruby: `bundle install`
 
-> Para alterações de front-end precisamos do NodeJS instalado.
+> :warning: Para alterações de front-end precisamos do NodeJS instalado.
 
 1. Instale as dependências globais do NodeJS: `sudo npm i -g gulp browser-sync`
 2. Instale as dependências locais do NodeJS: `npm install`
