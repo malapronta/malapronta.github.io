@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html class="no-js" lang="pt-br">
+  <head>
+    
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+<title>
+
+  Ferramentas front-end na MalaPronta com uma pitada de performance &bull; MalaPronta.com / TI
+
+</title>
+
+<link rel="alternate" href="http://malapronta.github.io/" hreflang="pt-BR">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link href="http://gmpg.org/xfn/11" rel="profile">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+
+<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+
+<script type="text/javascript">var disqus_shortname = 'ti-malapronta';</script>
+  </head>
+  <body class="single">
+    <main role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
+      <header class="header">
+  <nav class="navbar">
+
+  <div class="container-full">
+    <h1>
+      <a href="/" title="MalaPronta technology">
+        <img src="/assets/images/logo-malapronta-mini.jpg" alt="Logo MalaPronta.com"> technology
+      </a>
+    </h1>
+    <ul class="nav">
+      <li><a href="/">/home</a></li>
+      
+        <li><a href="/category/front-end">/Front-end</a></li>
+      
+        <li><a href="/category/back-end">/Back-end</a></li>
+      
+        <li><a href="/category/infra">/Infra</a></li>
+      
+        <li><a href="/category/mobile">/Mobile</a></li>
+      
+    </ul>
+  </div>
+
+</nav>
+  <div class="banner" >
+    <div class="banner-inner">
+      <div class="container">
+        <h1 class="post-title">Ferramentas front-end na MalaPronta com uma pitada de performance</h1>
+        <div class="post-meta">
+
+          
+          
+            
+            
+              
+                
+                  
+                
+              
+                
+              
+                
+              
+                
+              
+              
+                
+                
+              
+            
+          
+
+          <span class="post-date">
+            Publicado  em <a href="/category/front-end/">Front-end</a>, <time datetime="2015-09-25">
+              
+              25 de
+              Setembro
+                
+              de 2015
+              por
+              
+                
+              
+            </time>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article role="article" class="post">
+  <p>Hoje vou compartilhar um pouco do meu workflow e as ferramentas de front-end usadas aqui na <a href="http://malapronta.com.br">MalaPronta.com</a>.</p>
+
+<p>Quando entrei pra trabalhar aqui foi me dada uma missão (na verdade <strong>DUAS **mas a outra será contada em outro artigo), que era: **MELHORAR A PERFORMANCE DO PROJETO RESERVA IMEDIATA</strong>. EU achava que não havia muito o que melhorar da parte de front, mas eu estava equivocado.</p>
+
+<h2 id="automatizando-tarefas-com-gulp">Automatizando tarefas com Gulp</h2>
+
+<p>A primeira coisa que comecei foi a implementação do automatizador de tarefas, eu sabia que teria muito trabalho pela frente e que criando algumas <em>tasks,</em> para executar coisas repetidas, me ajudaria com o trabalho árduo. Eu já conhecia o <strong><a href="http://gulpjs.com/">Gulp</a></strong>, mas naquele momento minha relação com ele foi ficando cada vez mais forte, esse cara iria me ajudar muito nesse desafio, que era:</p>
+
+<ol>
+  <li>Minificar todos os arquivos CSS;</li>
+  <li>Minificar todos os arquivos JS;</li>
+  <li>Comprimir todas as imagens;</li>
+  <li>Unir arquivos CSS de páginas principais em um só (usando SASS);</li>
+</ol>
+
+<h2 id="minificando-todos-arquivos-css-e-js">Minificando todos arquivos CSS e JS</h2>
+
+<p>A lista de tarefas nem era tão grande assim, mas a quantidade de arquivos sim, era mais de <strong>900</strong> arquivos CSS e um pouco mais de <strong>3.400</strong> (sim 3 mil) arquivos JS.</p>
+
+<p>Dai você se pergunta: <em>todos esses arquivos estavam sendo usados?</em> Bem, eu não sei te dizer, mas não arrisquei apagar 1 arquivo sequer, provavelmente tinha muitos arquivos repetidos por lá.</p>
+
+<p>Então o único jeito seria <strong>minificar</strong> todos os 3 mil arquivos JS e os 900 arquivos CSS do projeto, incluindo arquivos já minificados (.min), não deixei nenhum de fora, jQuery e plugins jQuery, foram todos minificados.</p>
+
+<p><strong>Tarefa para minificar todos CSS:</strong></p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">&#39;min-all-css&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">(</span><span class="s1">&#39;css/**/*.css&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">minifyCss</span><span class="p">())</span> <span class="c1">// ninifica o arquivo CSS</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">size</span><span class="p">({</span> <span class="nx">gzip</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nx">showFiles</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}))</span> <span class="c1">// exibe o tamanho do arquivo no log</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="s1">&#39;../web/css/&#39;</span><span class="p">));</span> <span class="c1">// salva o arquivo no destino final</span>
+<span class="p">});</span></code></pre></div>
+
+<p><strong>Tarefa para minificar todos Javascripts:</strong></p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">&#39;min-all-js&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">(</span><span class="s1">&#39;js/**/*.js&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">uglify</span><span class="p">())</span> <span class="c1">// ninifica o arquivo JS</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">size</span><span class="p">({</span> <span class="nx">gzip</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nx">showFiles</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}))</span> <span class="c1">// exibe o tamanho do arquivo no log</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="s1">&#39;../web/css/&#39;</span><span class="p">));</span> <span class="c1">// salva o arquivo no destino final</span>
+<span class="p">});</span></code></pre></div>
+
+<blockquote>
+  <p><strong>Obs</strong>.: Processar quase 4.000 arquivos foi um sucesso, o Gulp é super rápido, até eu tentar fazer isso no Windows, quando as pessoas me perguntarem porque sistemas Unix são melhores que Sistema em base DOS eu terei uma resposta bem embasada e bem testada :P</p>
+</blockquote>
+
+<p>/next step..</p>
+
+<h2 id="comprimindo-todas-as-imagens">Comprimindo todas as imagens</h2>
+
+<p>A quantidade das imagens também era absurda, mas bem mais baixa que os arquivos JS, era algo perto de 3 mil.</p>
+
+<p>Pra quem conhece e já usa o <strong>Gulp</strong> sabe que isso é uma tarefa bem fácil. Usando os componentes <a href="https://www.npmjs.com/package/gulp-imagemin">gulp-imagemin</a> e o <a href="https://www.npmjs.com/package/imagemin-pngquant">imagemin-pngquant</a> eu consegui fazer a tarefa pra reduzir o tamanho das imagens, claro que ela levou bem mais tempo que as demais tarefas então rodei <code>gulp images</code> no terminal e fui pegar um café.</p>
+
+<h2 id="ok-tudo-minificado-e-agora">Ok, tudo minificado e agora?</h2>
+
+<p>O processo de</p>
+
+
+  <div class="clearfix"></div>
+
+  <div class="post-meta">
+    
+    
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+        
+          
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+        
+        
+          
+          
+        
+      
+    
+    <small><i class="icon icon-tags"></i> <a href="/tag/ferramentas/">Ferramentas</a>, <a href="/tag/performance/">Performance</a></small>
+  </div>
+</section>
+
+
+
+  <footer class="post-footer">
+    
+
+    <aside class="share">
+
+  <h4>Compartilhe:</h4>
+
+  <span class="share-icons">
+    <a href="http://twitter.com/share?text=Ferramentas front-end na MalaPronta com uma pitada de performance&amp;url=http://malapronta.github.io//ferramentas-front-end-malapronta&amp;hashtags=MalaProntaTI" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" class="icon-twitter2"></a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://malapronta.github.io//ferramentas-front-end-malapronta" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" class="icon-facebook2"></a>
+    <a href="https://plus.google.com/share?url=http://malapronta.github.io//ferramentas-front-end-malapronta" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" class="icon-google-plus"></a>
+  </span>
+
+</aside>
+
+  </footer>
+
+</article>
+
+
+  <aside id="comments" class="disqus">
+  <div class="container">
+    <h3 class="text-center">Comentários</h3>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_identifier = '/ferramentas-front-end-na-malaprontacom-com-uma-pitada-de-performance';
+      var disqus_title = 'Ferramentas front-end na MalaPronta com uma pitada de performance';
+      var disqus_url = 'http://malapronta.github.io//ferramentas-front-end-malapronta';
+      /*var disqus_developer = 1;*/
+
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>
+      Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+    </noscript>
+  </div>
+</aside>
+
+
+      <footer class="footer">
+  <div class="container">
+    <ul class="social">
+      <li>
+        <a href="http://www.facebook.com/malapronta" target="_blank" class="icon-facebook"></a>
+      </li>
+      <li>
+        <a href="http://twitter.com/malapronta" target="_blank" class="icon-twitter"></a>
+      </li>
+      <li>
+        <a href="http://github.com/malapronta" target="_blank" class="icon-github"></a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+<script type="text/javascript">
+(function () {
+  var s = document.createElement('script'); s.async = true;
+  s.type = 'text/javascript';
+  s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+    </main>
+  </body>
+</html>
